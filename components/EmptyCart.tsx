@@ -2,7 +2,6 @@
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function EmptyCart() {
   return (
@@ -23,7 +22,7 @@ export default function EmptyCart() {
             duration: 5,
             ease: "easeInOut",
           }}
-          className="relative w-48 h-48 mx-auto"
+          className="flex justify-center"
         >
           <motion.div
             animate={{
@@ -35,9 +34,9 @@ export default function EmptyCart() {
               duration: 3,
               ease: "linear",
             }}
-            className="absolute -top-4 -right-4 bg-blue-500 rounded-full p-2"
+            className="bg-blue-500 rounded-full p-3"
           >
-            <ShoppingCart size={24} className="text-white" />
+            <ShoppingCart size={32} className="text-white" />
           </motion.div>
         </motion.div>
 
