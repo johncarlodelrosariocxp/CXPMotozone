@@ -2,7 +2,6 @@
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { emptyCart } from "@/images";
 import Image from "next/image";
 
 export default function EmptyCart() {
@@ -26,13 +25,6 @@ export default function EmptyCart() {
           }}
           className="relative w-48 h-48 mx-auto"
         >
-          <Image
-            src={emptyCart}
-            alt="Empty shopping cart"
-            layout="fill"
-            objectFit="contain"
-            className="drop-shadow-lg"
-          />
           <motion.div
             animate={{
               x: [0, -10, 10, 0],
