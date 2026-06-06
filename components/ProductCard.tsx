@@ -9,8 +9,8 @@ import Title from "./Title";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="group bg-black border border-[#DC0C0C] rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-[#DC0C0C]/20 transition-all duration-500 hover:-translate-y-2">
-      <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+    <div className="group bg-white border border-[#DC0C0C] rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-[#DC0C0C]/20 transition-all duration-500 hover:-translate-y-2">
+      <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
         {product?.images && product?.stock !== 0 && (
           <Link href={`/product/${product?.slug?.current}`}>
             <div className="relative">
@@ -64,7 +64,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
       <div className="p-5 flex flex-col gap-3">
         {product?.categories && product.categories.length > 0 && (
-          <p className="uppercase tracking-wider text-xs text-gray-400 font-medium">
+          <p className="uppercase tracking-wider text-xs text-gray-500 font-medium">
             {product.categories
               .map((cat) => {
                 // Handle both string values and object references
@@ -85,14 +85,14 @@ const ProductCard = ({ product }: { product: Product }) => {
           </p>
         )}
 
-        <Title className="text-lg font-semibold text-white line-clamp-2 leading-tight group-hover:text-gray-200 transition-colors duration-300">
+        <Title className="text-lg font-semibold text-gray-900 line-clamp-2 leading-tight group-hover:text-gray-700 transition-colors duration-300">
           {product.name}
         </Title>
 
         <div className="flex items-center justify-between mt-2">
           <PriceView
             price={product.price}
-            className="text-lg font-bold text-white"
+            className="text-lg font-bold text-gray-900"
           />
         </div>
       </div>

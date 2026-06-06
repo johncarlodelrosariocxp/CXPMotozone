@@ -26,7 +26,7 @@ const AboutSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-20 md:py-28 lg:py-32 overflow-hidden bg-gradient-to-b from-black to-zinc-950"
+      className="relative w-full py-20 md:py-28 lg:py-32 overflow-hidden bg-white"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -92,18 +92,24 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <motion.div variants={fadeInUp}>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              <div className="inline-block mb-4">
+                <div className="flex items-center gap-2 text-sm font-medium text-[#DC0C0C] uppercase tracking-wider">
+                  <span className="w-8 h-px bg-[#DC0C0C]" />
+                  <span>About Us</span>
+                  <span className="w-8 h-px bg-[#DC0C0C]" />
+                </div>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
                 About{" "}
                 <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
                   CXP Moto Zone
                 </span>
               </h2>
-              <div className="w-20 h-1 bg-red-600 rounded-full" />
             </motion.div>
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-300 text-lg leading-relaxed"
+              className="text-gray-700 text-lg leading-relaxed"
             >
               CXP Moto Zone is a trusted motorcycle parts, accessories, and
               motorcare provider located in Balagtas. We are proud to be one of
@@ -114,7 +120,7 @@ const AboutSection = () => {
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-400 leading-relaxed"
+              className="text-gray-600 leading-relaxed"
             >
               At CXP Moto Zone, we offer a wide range of motorcycle parts,
               accessories, maintenance products, and motorcare solutions
@@ -126,7 +132,7 @@ const AboutSection = () => {
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-400 leading-relaxed"
+              className="text-gray-600 leading-relaxed"
             >
               Over the years, we have earned the trust of countless riders and
               motorcycle enthusiasts through our dedication to quality,
@@ -135,77 +141,6 @@ const AboutSection = () => {
               accessories, or professional motorcare products, CXP Moto Zone is
               your trusted partner on the road.
             </motion.p>
-
-            {/* Mission & Vision Cards */}
-            <motion.div
-              variants={fadeInUp}
-              className="grid sm:grid-cols-2 gap-6 pt-4"
-            >
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-red-500/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Our Mission</h3>
-                <p className="text-gray-400 text-sm">
-                  To provide high-quality motorcycle parts, accessories, and
-                  motorcare products that help riders enjoy a safer, smoother,
-                  and more reliable riding experience.
-                </p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-red-500/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2">Our Vision</h3>
-                <p className="text-gray-400 text-sm">
-                  To be one of the most trusted and preferred motorcycle parts
-                  and accessories providers in the Philippines, recognized for
-                  quality, innovation, and customer satisfaction.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Tagline */}
-            <motion.div
-              variants={fadeInUp}
-              className="pt-4 border-t border-white/10"
-            >
-              <p className="text-red-500 font-semibold text-lg italic">
-                CXP Moto Zone — Quality You Can Trust, Performance You Can Rely
-                On.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

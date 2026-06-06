@@ -209,172 +209,59 @@ const BlogPage = () => {
   }, [nextKobySlide]);
 
   return (
-    // ✅ Premium background with parallax effect
-    <div
-      className="relative py-16 md:py-20 min-h-screen text-white bg-fixed bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/blog.jpg')" }}
-    >
-      {/* ✅ Sophisticated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/70 to-[#DC0C0C]/50 z-0" />
-
-      {/* ✅ Animated background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#DC0C0C]/15 via-transparent to-transparent z-0" />
-
+    <div className="min-h-screen bg-white pt-20 mt-10">
       <Container>
-        {/* Title Section - FIXED FUCKING RED COLOR EVERYWHERE */}
-        <div className="w-full flex flex-col items-center mb-3">
-          <div className="flex items-center justify-center w-full gap-4 mb-8">
-            <div className="flex-1 h-[2px] bg-gradient-to-r from-transparent to-[#DC0C0C]" />
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider text-center text-[#DC0C0C] px-8 py-4 border-2 border-[#DC0C0C] shadow-2xl shadow-[#DC0C0C]/20 uppercase font-rajdhani tracking-widest backdrop-blur-sm">
-              NEWS AND EVENTS
-            </div>
-            <div className="flex-1 h-[2px] bg-gradient-to-l from-transparent to-[#DC0C0C]" />
+        {/* Title Section - Clean & Minimal */}
+        <div className="w-full flex flex-col items-center py-12 md:py-16">
+          <div className="flex items-center justify-center w-full gap-4 mb-6">
+            <div className="flex-1 h-px bg-gray-200" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 px-6 font-sans">
+              NEWS & EVENTS
+            </h1>
+            <div className="flex-1 h-px bg-gray-200" />
           </div>
+          <p className="text-gray-500 text-center max-w-2xl font-sans">
+            Stay updated with the latest happenings, collaborations, and
+            community news from CXP Motozone
+          </p>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links - Clean Tabs */}
         <div className="relative z-10 mb-12">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="#koby-banners"
-              className="px-6 py-3 bg-gradient-to-r from-[#DC0C0C] to-[#ff4444] text-white rounded-lg font-medium hover:from-[#ff4444] hover:to-[#DC0C0C] transition-all duration-300 transform hover:scale-105 shadow-lg font-rajdhani"
+              className="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-200 shadow-sm"
             >
               Koby x Katagumpay
             </Link>
             <Link
               href="#latest-news"
-              className="px-6 py-3 bg-gradient-to-r from-[#DC0C0C] to-[#ff4444] text-white rounded-lg font-medium hover:from-[#ff4444] hover:to-[#DC0C0C] transition-all duration-300 transform hover:scale-105 shadow-lg font-rajdhani"
+              className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-200"
             >
               Latest News
             </Link>
             <Link
               href="#social-updates"
-              className="px-6 py-3 bg-gradient-to-r from-[#DC0C0C] to-[#ff4444] text-white rounded-lg font-medium hover:from-[#ff4444] hover:to-[#DC0C0C] transition-all duration-300 transform hover:scale-105 shadow-lg font-rajdhani"
+              className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-200"
             >
               Social Updates
             </Link>
           </div>
         </div>
 
-        {/* ✅ NEW: Koby x Katagumpay Banner Section */}
-        <div id="koby-banners" className="relative z-10 mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#DC0C0C] mb-4 font-rajdhani">
-              Koby x Katagumpay Collaboration
-            </h2>
-            <div className="w-24 h-0.5 bg-[#DC0C0C] mx-auto" />
-            <p className="text-white mt-4 max-w-2xl mx-auto font-rajdhani text-lg">
-              Official collaboration banners featuring Koby and Katagumpay
-            </p>
-          </div>
-
-          <div className="backdrop-blur-2xl bg-black/60 border border-[#DC0C0C] shadow-2xl shadow-[#DC0C0C]/30 p-1">
-            {/* Koby Banner Slider Container */}
-            <div className="relative h-80 md:h-96 lg:h-[600px] overflow-hidden">
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevKobySlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#DC0C0C] hover:border-white transition-all duration-300 group"
-              >
-                <svg
-                  className="w-6 h-6 text-white group-hover:text-[#DC0C0C] transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-
-              <button
-                onClick={nextKobySlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#DC0C0C] hover:border-white transition-all duration-300 group"
-              >
-                <svg
-                  className="w-6 h-6 text-white group-hover:text-[#DC0C0C] transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-
-              {/* Koby Banner Images */}
-              {kobyBannerImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentKobySlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={image}
-                    alt={`Koby x Katagumpay Banner ${index + 1}`}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 100vw"
-                  />
-
-                  {/* Gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-
-                  {/* Banner Info */}
-                  <div className="absolute bottom-6 left-6 bg-black/70 backdrop-blur-sm p-4 rounded-lg border border-[#DC0C0C] max-w-md">
-                    <h3 className="text-xl font-bold text-white mb-2 font-rajdhani">
-                      {index === 0
-                        ? "Koby x Katagumpay"
-                        : "Koby x Katagumpay Full Mechanics"}
-                    </h3>
-                    <p className="text-white/90 text-sm font-rajdhani">
-                      Official collaboration banner featuring premium motorcycle
-                      products
-                    </p>
-                  </div>
-                </div>
-              ))}
-
-              {/* Slide indicator */}
-              <div className="absolute bottom-6 right-6 flex space-x-3">
-                {kobyBannerImages.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentKobySlide(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === currentKobySlide
-                        ? "bg-[#DC0C0C] scale-125"
-                        : "bg-white/70 hover:bg-white"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ✅ Premium Image Slider Section with 2 images side by side - BLACK GLASS */}
-        <div className="relative z-10 mb-10">
-          <div className="backdrop-blur-2xl bg-black/60 border border-[#DC0C0C] shadow-2xl shadow-[#DC0C0C]/30 p-1">
+        {/* Premium Image Slider Section - Clean Design */}
+        <div className="relative z-10 mb-20">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
             {/* Main Slider Container */}
-            <div className="relative h-80 md:h-96 lg:h-[500px] overflow-hidden">
+            <div className="relative h-80 md:h-96 lg:h-[450px] bg-gray-50">
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#DC0C0C] hover:border-white transition-all duration-300 group"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-all duration-200"
               >
                 <svg
-                  className="w-6 h-6 text-white group-hover:text-[#DC0C0C] transition-colors"
+                  className="w-5 h-5 text-gray-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -390,10 +277,10 @@ const BlogPage = () => {
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-black/70 hover:bg-black/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#DC0C0C] hover:border-white transition-all duration-300 group"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-all duration-200"
               >
                 <svg
-                  className="w-6 h-6 text-white group-hover:text-[#DC0C0C] transition-colors"
+                  className="w-5 h-5 text-gray-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -411,7 +298,7 @@ const BlogPage = () => {
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
                     index === currentSlide ? "opacity-100" : "opacity-0"
                   }`}
                 >
@@ -425,7 +312,6 @@ const BlogPage = () => {
                         className="object-cover"
                         sizes="(max-width: 768px) 50vw, 25vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
                     </div>
 
                     {/* Right Image - 50% width (next image in sequence) */}
@@ -437,23 +323,19 @@ const BlogPage = () => {
                         className="object-cover"
                         sizes="(max-width: 768px) 50vw, 25vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent" />
                     </div>
                   </div>
 
-                  {/* Gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
                   {/* Slide indicator */}
-                  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
                     {images.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={() => setCurrentSlide(idx)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
                           idx === currentSlide
-                            ? "bg-[#DC0C0C] scale-125"
-                            : "bg-white/70 hover:bg-white"
+                            ? "bg-red-500 w-6"
+                            : "bg-gray-300 hover:bg-gray-400"
                         }`}
                         aria-label={`Go to slide ${idx + 1}`}
                       />
@@ -465,118 +347,114 @@ const BlogPage = () => {
           </div>
         </div>
 
-        {/* ✅ Social Updates Section - Updated with new iframes */}
+        {/* Social Updates Section - Clean Grid */}
         <div id="social-updates" className="relative z-10 mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#DC0C0C] mb-4 font-rajdhani">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 font-sans tracking-tight">
               Social Updates
             </h2>
-            <div className="w-24 h-0.5 bg-[#DC0C0C] mx-auto" />
-            <p className="text-white mt-4 max-w-2xl mx-auto font-rajdhani text-lg">
+            <div className="w-16 h-0.5 bg-red-500 mx-auto" />
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto font-sans">
               Stay connected with our latest social media posts and community
               updates
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {socialUpdatesIframes.map((iframe) => (
               <div
                 key={iframe.id}
-                className="backdrop-blur-xl bg-black/60 border border-[#DC0C0C] shadow-xl shadow-[#DC0C0C]/20 p-6 hover:bg-black/70 transition-all duration-300 hover:scale-[1.02]"
+                className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-200"
               >
-                <div className="flex justify-center">
-                  <div className="w-full max-w-[300px]">{iframe.embedCode}</div>
+                <div className="p-6 flex justify-center">
+                  <div className="w-full max-w-[300px] mx-auto">
+                    {iframe.embedCode}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ✅ Latest News Section - Smaller iframes */}
-        <div id="latest-news" className="relative z-10">
-          <div className="backdrop-blur-2xl bg-black/60 border border-[#DC0C0C] shadow-2xl shadow-[#DC0C0C]/20 p-8 md:p-12">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#DC0C0C] mb-4 font-rajdhani">
-                Latest News
-              </h2>
-              <div className="w-24 h-0.5 bg-[#DC0C0C] mx-auto mb-8" />
-              <p className="text-white max-w-2xl mx-auto font-rajdhani text-lg">
-                Latest updates from our Facebook page including videos, posts,
-                and announcements
-              </p>
-            </div>
+        {/* Latest News Section - Clean Cards */}
+        <div id="latest-news" className="relative z-10 mb-20">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 font-sans tracking-tight">
+              Latest News
+            </h2>
+            <div className="w-16 h-0.5 bg-red-500 mx-auto" />
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto font-sans">
+              Latest updates from our Facebook page including videos, posts, and
+              announcements
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {latestNewsIframes.map((iframe) => (
-                <div
-                  key={iframe.id}
-                  className="group backdrop-blur-xl bg-black/60 border border-[#DC0C0C] shadow-lg shadow-[#DC0C0C]/10 overflow-hidden hover:bg-black/70 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#DC0C0C]/20"
-                >
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-white mb-3 text-center font-rajdhani">
-                      {iframe.title}
-                    </h3>
-                    <div className="flex justify-center">
-                      <div className="w-full max-w-[300px] mx-auto">
-                        {iframe.embedCode}
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+            <div className="p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {latestNewsIframes.map((iframe) => (
+                  <div
+                    key={iframe.id}
+                    className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-all duration-200"
+                  >
+                    <div className="p-5">
+                      <h3 className="text-base font-semibold text-gray-900 mb-4 text-center font-sans">
+                        {iframe.title}
+                      </h3>
+                      <div className="flex justify-center">
+                        <div className="w-full max-w-[300px] mx-auto">
+                          {iframe.embedCode}
+                        </div>
+                      </div>
+                      <div className="mt-5 text-center">
+                        <Link
+                          href="https://www.facebook.com/CXPMotozone"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-red-600 hover:text-red-700 transition-colors duration-200 font-medium"
+                        >
+                          <span>View on Facebook</span>
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
-                    <div className="mt-4 text-center">
-                      <Link
-                        href="https://www.facebook.com/CXPMotozone"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-[#DC0C0C] hover:text-[#ff4444] transition-colors duration-300 font-rajdhani"
-                      >
-                        <span>View on Facebook</span>
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      </Link>
-                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {/* View More Button */}
-            <div className="text-center mt-12">
-              <Link
-                href="https://www.facebook.com/CXPMotozone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#DC0C0C] to-[#ff4444] text-white font-bold hover:from-[#ff4444] hover:to-[#DC0C0C] transition-all duration-300 transform hover:scale-105 shadow-lg font-rajdhani border border-white/20"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+              {/* View More Button */}
+              <div className="text-center mt-10 pt-4 border-t border-gray-100">
+                <Link
+                  href="https://www.facebook.com/CXPMotozone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-200 shadow-sm"
                 >
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-                <span>Follow for More Updates</span>
-              </Link>
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span>Follow for More Updates</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* ✅ Premium Decorative Elements */}
-        <div className="absolute top-1/4 left-8 w-3 h-3 bg-[#DC0C0C] rounded-full opacity-70 animate-pulse" />
-        <div className="absolute bottom-1/4 right-6 w-2 h-2 bg-[#ff4444] rounded-full opacity-50 animate-bounce delay-1000" />
-        <div className="absolute top-1/2 left-24 w-1.5 h-1.5 bg-white rounded-full opacity-40 animate-ping" />
-        <div className="absolute top-3/4 right-16 w-2 h-2 bg-[#DC0C0C] rounded-full opacity-60 animate-pulse delay-500" />
-        <div className="absolute top-1/3 right-24 w-2 h-2 bg-[#ff4444] rounded-full opacity-60 animate-pulse delay-300" />
-        <div className="absolute bottom-1/3 left-16 w-1.5 h-1.5 bg-white rounded-full opacity-40 animate-ping delay-700" />
       </Container>
     </div>
   );

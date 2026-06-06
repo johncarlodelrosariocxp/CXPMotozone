@@ -7,7 +7,7 @@ import { groq } from "next-sanity";
 import ProductCard from "./ProductCard";
 import { Product } from "@/sanity.types";
 import { motion } from "framer-motion";
-import { Trophy } from "lucide-react";
+import { TrendingUp, Star } from "lucide-react";
 
 // Define types for Sanity product data
 interface SanityImage {
@@ -105,7 +105,6 @@ const transformImages = (images: SanityImage[] = []) => {
 const transformSanityProduct = (sanityProduct: SanityProduct): Product => {
   const slugValue = getProductSlug(sanityProduct);
 
-  // Build product object
   const product = {
     _id: sanityProduct._id,
     _type: "product" as const,
@@ -134,7 +133,6 @@ const transformSanityProduct = (sanityProduct: SanityProduct): Product => {
     variants: sanityProduct.variants,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return product as any as Product;
 };
 
@@ -230,23 +228,24 @@ const HomeBestSellers = () => {
 
   if (loading) {
     return (
-      <section
-        className="py-12 px-4 sm:px-6 lg:px-8 relative min-h-[600px]"
-        style={{
-          backgroundImage: "url('/images/2813985.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4">
+              <div className="flex items-center gap-2 text-sm font-medium text-[#DC0C0C] uppercase tracking-wider">
+                <span className="w-8 h-px bg-[#DC0C0C]" />
+                <span>Top Rated</span>
+                <span className="w-8 h-px bg-[#DC0C0C]" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900">
+              Best <span className="font-bold text-[#DC0C0C]">Sellers</span>
+            </h2>
+          </div>
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-800 rounded w-48 mb-8"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-gray-900 rounded-xl h-96"></div>
+                <div key={i} className="bg-gray-100 rounded-xl h-96"></div>
               ))}
             </div>
           </div>
@@ -257,28 +256,16 @@ const HomeBestSellers = () => {
 
   if (bestSellers.length === 0) {
     return (
-      <section
-        className="py-16 px-4 sm:px-6 lg:px-8 relative min-h-[500px]"
-        style={{
-          backgroundImage: "url('/images/2813985.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70"></div>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <Trophy className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-2">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
+            <Star className="w-8 h-8 text-gray-400" />
+          </div>
+          <h2 className="text-2xl font-light text-gray-900 mb-2">
             No Best Sellers Yet
           </h2>
-          <p className="text-gray-300">
-            Mark products as &quot;Best Seller&quot; in Sanity Studio to see
-            them here.
-            <br />
-            Go to: Products → Edit Product → Check &quot;Best Seller&quot;
-            checkbox
+          <p className="text-gray-500 max-w-md mx-auto">
+            Mark products as "Best Seller" in Sanity Studio to see them here.
           </p>
         </div>
       </section>
@@ -286,63 +273,44 @@ const HomeBestSellers = () => {
   }
 
   return (
-    <section
-      className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen"
-      style={{
-        backgroundImage: "url('/images/2813985.jpg')",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/60"></div>
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DC0C0C] to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DC0C0C] to-transparent"></div>
-      <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#DC0C0C]/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#DC0C0C]/10 rounded-full blur-3xl"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="w-full flex flex-col items-center mb-8 md:mb-16">
-          <div className="flex items-center justify-center w-full gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
-            <div className="flex-1 h-[1px] sm:h-[2px] bg-gradient-to-r from-transparent to-[#DC0C0C]" />
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-wide text-center text-[#DC0C0C] px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 border-2 border-[#DC0C0C] sm:border-2 shadow-lg sm:shadow-xl md:shadow-2xl shadow-[#DC0C0C]/40 uppercase font-rajdhani tracking-widest whitespace-nowrap bg-black/60 backdrop-blur-sm">
-              BEST SELLER
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section with Consistent Design */}
+        <div className="text-center mb-12">
+          <div className="inline-block mb-4">
+            <div className="flex items-center gap-2 text-sm font-medium text-[#DC0C0C] uppercase tracking-wider">
+              <span className="w-8 h-px bg-[#DC0C0C]" />
+              <span>Top Rated Products</span>
+              <span className="w-8 h-px bg-[#DC0C0C]" />
             </div>
-            <div className="flex-1 h-[1px] sm:h-[2px] bg-gradient-to-l from-transparent to-[#DC0C0C]" />
           </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900">
+            Best <span className="font-bold text-[#DC0C0C]">Sellers</span>
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto mt-4 font-light">
+            Most popular products chosen by our customers
+          </p>
         </div>
 
-        {bestSellers.length > 0 ? (
+        {/* Products Grid */}
+        {bestSellers.length > 0 && (
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {bestSellers.map((product, index) => (
               <motion.div
                 key={product._id || `product-${index}`}
                 variants={itemVariants}
-                custom={index}
                 className="relative group"
               >
                 <ProductCard product={product} />
               </motion.div>
             ))}
           </motion.div>
-        ) : (
-          <div className="text-center py-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-black/60 rounded-full mb-4 backdrop-blur-sm">
-              <Trophy className="w-8 h-8 text-gray-300" />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-2">
-              No Best Seller Products Found
-            </h3>
-            <p className="text-gray-300">
-              Mark products as best sellers in Sanity Studio to see them here
-            </p>
-          </div>
         )}
       </div>
     </section>

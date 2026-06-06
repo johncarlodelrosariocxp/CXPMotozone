@@ -15,16 +15,18 @@ export default async function CategoryPage({
   const categories = await getCategories();
 
   return (
-    <div className="pt-20 pb-10">
+    <div className="min-h-screen bg-white pt-24 pb-16">
       {" "}
       {/* Changed from py-10 to pt-10 pb-10 */}
       <Container>
-        <Title>
-          Products by Category:{" "}
-          <span className="font-bold text-green-600 capitalize tracking-wide">
-            {slug}
-          </span>
-        </Title>
+        <div className="mb-12">
+          <Title>
+            Products by Category:{" "}
+            <span className="font-bold text-green-600 capitalize tracking-wide">
+              {slug}
+            </span>
+          </Title>
+        </div>
         <CategoryProducts categories={categories} slug={slug} />
       </Container>
     </div>

@@ -60,21 +60,21 @@ export default async function BrandPage({
   }
 
   return (
-    <div className="min-h-screen bg-black pt-10">
+    <div className="min-h-screen bg-white pt-20 mt-16">
       {/* Background Effects */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#DC0C0C]/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#DC0C0C]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Brand Header */}
-      <div className="relative bg-gradient-to-r from-black via-gray-900 to-black border-b border-[#DC0C0C]/30">
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="relative bg-gradient-to-r from-white via-gray-50 to-white border-b border-[#DC0C0C]/30">
+        <div className="absolute inset-0 bg-white/60" />
         <Container>
-          <div className="relative flex flex-col md:flex-row items-center gap-8 py-6">
+          <div className="relative flex flex-col md:flex-row items-center gap-8 py-12">
             {brand.image && (
-              <div className="w-32 h-32 md:w-48 md:h-48 relative bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border-2 border-[#DC0C0C]/50 shadow-[0_0_30px_rgba(220,12,12,0.3)] group hover:shadow-[0_0_40px_rgba(220,12,12,0.5)] transition-all duration-500">
+              <div className="w-32 h-32 md:w-48 md:h-48 relative bg-gradient-to-br from-gray-100 to-white rounded-2xl p-6 border-2 border-[#DC0C0C]/50 shadow-[0_0_30px_rgba(220,12,12,0.3)] group hover:shadow-[0_0_40px_rgba(220,12,12,0.5)] transition-all duration-500">
                 <Image
                   src={urlFor(brand.image).url()}
                   alt={brand.title || "Brand Logo"}
@@ -89,7 +89,7 @@ export default async function BrandPage({
                 {brand.title}
               </Title>
               {brand.description && (
-                <p className="text-gray-300 text-xl max-w-3xl leading-relaxed mb-8">
+                <p className="text-gray-600 text-xl max-w-3xl leading-relaxed mb-8">
                   {brand.description}
                 </p>
               )}
@@ -124,19 +124,19 @@ export default async function BrandPage({
       </div>
 
       {/* Products Grid */}
-      <Container className="py-16 relative">
+      <Container className="py-20 relative">
         {products && products.length > 0 ? (
           <>
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <div className="inline-flex items-center gap-4 mb-2">
                 <div className="h-[2px] w-20 bg-[#DC0C0C] animate-pulse rounded-full" />
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                   {brand.title}{" "}
                   <span className="text-[#DC0C0C]">Collection</span>
                 </h2>
                 <div className="h-[2px] w-20 bg-[#DC0C0C] animate-pulse rounded-full" />
               </div>
-              <p className="text-gray-400 text-lg">
+              <p className="text-gray-600 text-lg">
                 Showing {products.length} product
                 {products.length !== 1 ? "s" : ""} from {brand.title}
               </p>
@@ -146,7 +146,7 @@ export default async function BrandPage({
               {products.map((product: Product) => (
                 <div
                   key={product._id}
-                  className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border-2 border-[#DC0C0C]/30 hover:border-[#DC0C0C] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(220,12,12,0.3)]"
+                  className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden border-2 border-[#DC0C0C]/30 hover:border-[#DC0C0C] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(220,12,12,0.3)]"
                 >
                   <ProductCard product={product} />
                 </div>
@@ -160,7 +160,7 @@ export default async function BrandPage({
               className="mt-8"
             />
             <div className="mt-8">
-              <p className="text-gray-400 text-lg mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-600 text-lg mb-6 max-w-2xl mx-auto">
                 No products available for {brand.title} at the moment. Check
                 back soon for new arrivals!
               </p>
@@ -173,7 +173,7 @@ export default async function BrandPage({
                 </Link>
                 <Link
                   href="/brands"
-                  className="bg-gray-800 text-white px-6 py-3 rounded-full font-bold border border-gray-600 hover:bg-gray-700 transition-all duration-300"
+                  className="bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-bold border border-gray-300 hover:bg-gray-300 transition-all duration-300"
                 >
                   View Other Brands
                 </Link>

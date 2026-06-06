@@ -53,12 +53,12 @@ const CategoryProducts = ({ categories, slug }: Props) => {
   return (
     <div className="py-5 flex flex-col md:flex-row items-start gap-5">
       {/* Category Sidebar */}
-      <div className="flex flex-col md:min-w-40 border-2 border-gray-700">
+      <div className="flex flex-col md:min-w-40 border-2 border-gray-200 bg-white">
         {categories?.map((item) => (
           <Button
             onClick={() => handleCategoryChange(item?.slug?.current as string)}
             key={item?._id}
-            className={`bg-transparent border-0 p-0 rounded-none text-white shadow-none hover:bg-shop_orange hover:text-white font-semibold hoverEffect border-b-2 border-gray-700 last:border-b-0 transition-colors capitalize ${
+            className={`bg-transparent border-0 p-0 rounded-none text-gray-700 shadow-none hover:bg-shop_orange hover:text-white font-semibold hoverEffect border-b-2 border-gray-200 last:border-b-0 transition-colors capitalize ${
               item?.slug?.current === currentSlug &&
               "bg-shop_orange text-white border-shop_orange"
             }`}
@@ -71,10 +71,10 @@ const CategoryProducts = ({ categories, slug }: Props) => {
       {/* Product Grid */}
       <div className="flex-1">
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-10 min-h-60 space-y-4 text-center bg-gray-900 rounded-lg w-full border-2 border-gray-700">
+          <div className="flex flex-col items-center justify-center py-10 min-h-60 space-y-4 text-center bg-gray-50 rounded-lg w-full border-2 border-gray-200">
             <div className="flex items-center space-x-2 text-[#DC0C0C]">
               <Loader2 className="w-5 h-5 animate-spin" />
-              <span className="text-white">Product is loading...</span>
+              <span className="text-gray-700">Product is loading...</span>
             </div>
           </div>
         ) : products?.length > 0 ? (
@@ -87,7 +87,7 @@ const CategoryProducts = ({ categories, slug }: Props) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-gray-900 rounded-lg overflow-hidden flex flex-col border-2 border-gray-700 hover:border-[#DC0C0C] transition-all duration-300"
+                  className="bg-white rounded-lg overflow-hidden flex flex-col border-2 border-gray-200 hover:border-[#DC0C0C] transition-all duration-300"
                 >
                   {/* ProductCard will render picture + description */}
                   <div className="w-full aspect-[5/6]">

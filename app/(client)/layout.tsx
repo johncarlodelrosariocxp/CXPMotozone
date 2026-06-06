@@ -24,7 +24,7 @@ export default function RootLayout({
         <Header />
 
         {/* Main content: padding top to avoid overlap with header */}
-        <main className="flex-1 w-full pt-[80px] pb-[60px] overflow-x-hidden">
+        <main className="flex-1 w-full  bg-white overflow-x-hidden">
           {children}
         </main>
 

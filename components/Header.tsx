@@ -136,14 +136,14 @@ const Header: React.FC = () => {
         // If none of the above, use fallback
         else {
           console.warn(
-            "Failed to load header data from constants, using fallback"
+            "Failed to load header data from constants, using fallback",
           );
           setHeaderData(fallbackHeaderData);
         }
       } catch (error) {
         console.warn(
           "Failed to load header data from constants, using fallback:",
-          error
+          error,
         );
         setHeaderData(fallbackHeaderData);
       }
@@ -237,13 +237,13 @@ const Header: React.FC = () => {
 
   const onHome = pathname === "/";
 
-  // UPDATED: Removed shadow when hovered with white background
+  // UPDATED: Changed to white background
   const headerBgClass =
     onHome && !scrolled && !isHovered
       ? "bg-transparent"
       : isHovered
-        ? "bg-white" // Removed shadow-lg
-        : "bg-[#e2e2e2] shadow-md";
+        ? "bg-white"
+        : "bg-white shadow-md"; // Changed from bg-[#e2e2e2] to bg-white
 
   const textColorClass =
     onHome && !scrolled && !isHovered
@@ -362,9 +362,9 @@ const Header: React.FC = () => {
           </div>
         </header>
 
-        {/* HERO BANNER - SSR Version */}
+        {/* HERO BANNER - SSR Version with White Background */}
         {onHome && (
-          <section className="relative w-full">
+          <section className="relative w-full bg-white">
             <div className="relative h-[50vh] md:h-screen overflow-hidden">
               {bannerImages.slice(0, 1).map((src, index) => (
                 <Image
@@ -581,9 +581,9 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* HERO BANNER */}
+      {/* HERO BANNER with White Background */}
       {onHome && (
-        <section className="relative w-full">
+        <section className="relative w-full bg-white">
           <div className="relative h-[50vh] md:h-screen overflow-hidden">
             {bannerImages.map((src, index) => (
               <Image
@@ -604,7 +604,7 @@ const Header: React.FC = () => {
             <button
               onClick={() =>
                 setCurrentSlide((prev) =>
-                  prev === 0 ? bannerImages.length - 1 : prev - 1
+                  prev === 0 ? bannerImages.length - 1 : prev - 1,
                 )
               }
               suppressHydrationWarning
